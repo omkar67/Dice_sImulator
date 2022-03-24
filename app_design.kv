@@ -1,0 +1,71 @@
+<MainScreen>:
+    Image:
+        source: "Images\Screen 2.png"
+        allow_stretch:True
+        keep_ratio:False
+    GridLayout:
+
+        cols:1
+        id:base
+        GridLayout:
+            cols:1
+            spacing:10,10
+            padding:10,10
+            Label:
+                markup:True
+                text:"Dice Simulator"
+                font_size: '25sp'
+                color:1,1,1,1
+            Label:
+                markup:True
+                text:""
+                font_size: '25sp'
+                color:1,1,1,1
+            Label:
+                markup:True
+                text:""
+                font_size: '25sp'
+                color:1,1,1,1
+            RelativeLayout:
+                
+                Button:
+                    markup:True
+                    text:"Execute "
+                    font_size: '25sp'
+                    pos_hint: {"center_x": 0.5,"center_y": 0.5}
+                    size_hint: 0.5,1
+                    background_normal:"Images\butt.png"
+                    background_down:"Images\butt.png"
+                    opacity: 1 if self.state=='normal' else 0.25 
+                    color:0,0,0,1
+                    on_press:root.funtc()
+                    allow_stretch:True
+                    keep_ratio:False
+
+        GridLayout:
+            rows:1
+            GridLayout:
+
+                rows:1
+                cols:2
+                padding:10,10
+                spacing:15,15   
+                Image:
+                    source:
+                    allow_stretch:False
+                    keep_ratio:True
+                    id:img_1
+                    color: (1,1,1,0)if self.source==None else (1,1,1,1)
+                Image:
+                    source:
+                    allow_stretch:False
+                    keep_ratio:True
+                    id:img_2
+                    color: (1,1,1,0)if self.source==None else (1,1,1,1)
+            
+            
+
+
+<RootWidget>:
+    MainScreen:
+        name:'main_screen'
